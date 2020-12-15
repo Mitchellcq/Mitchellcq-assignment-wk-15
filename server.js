@@ -1,30 +1,30 @@
 const express = require("express");
-const path = require("path");
+const logger = require("morgan");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const apiRoutes = require("./routes/api-routes");
-const viewRoutes = require("./routes/views");
 
-const app = express();
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(
-    "mongodb+srv://Mitchellcq:Getfucked!123@testcluster.rrome.mongodb.net/fitnessTracker?retryWrites=true&w=majority",
-    {
-        useNewUrlParser: true,
-        useFindAndModify: false
-    }
-);
+const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(logger("dev"));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use(express.static("public"));
 
-app.use(apiRoutes);
-app.use(viewRoutes);
+const URI = process.env.MONGODB_URI || "mongodb://localhost/fitnessTracker"
 
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./public/index.html"));
+mongoose.connect(URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useFindAndModify: false
 });
 
-app.listen(PORT, () => console.log("listening on port: ", PORT));
+// routes
+app.use(require("./routes/api-routes.js"));
+app.use(require("./routes/html-routes.js"));
+
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}!`);
+});

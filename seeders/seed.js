@@ -8,11 +8,11 @@ mongoose.connect("mongodb://localhost/workout", {
 
 let workoutSeed = [
   {
-    day: new Date().setDate(new Date().getDate()-10),
+    day: new Date(Date.now()),
     exercises: [
       {
         type: "resistance",
-        name: "Bicep Curl",
+        name: "Bench Press",
         duration: 20,
         weight: 100,
         reps: 10,
@@ -21,11 +21,11 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-9),
+    day: new Date(Date.now()),
     exercises: [
       {
         type: "resistance",
-        name: "Lateral Pull",
+        name: "Bench Press",
         duration: 20,
         weight: 300,
         reps: 10,
@@ -34,12 +34,12 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-8),
+    day: new Date(Date.now()),
     exercises: [
       {
         type: "resistance",
         name: "Push Press",
-        duration: 25,
+        duration: 2,
         weight: 185,
         reps: 8,
         sets: 4
@@ -47,18 +47,18 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-7),
+    day: new Date(Date.now()),
     exercises: [
       {
         type: "cardio",
         name: "Running",
-        duration: 25,
+        duration: 20,
         distance: 4
       }
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-6),
+    day: new Date(Date.now()),
     exercises: [
       {
         type: "resistance",
@@ -71,7 +71,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-5),
+    day: new Date(Date.now()),
     exercises: [
       {
         type: "resistance",
@@ -84,41 +84,52 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 4)),
+    day: new Date(Date.now()),
     exercises: [
       {
         type: "resistance",
-        name: "Quad Press",
+        name: "Bench Press",
+        duration: 20,
+        weight: 300,
+        reps: 10,
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: new Date(Date.now()),
+    exercises: [
+      {
+        type: "resistance",
+        name: "Bench Press",
+        duration: 20,
+        weight: 300,
+        reps: 10,
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: new Date(Date.now()),
+    exercises: [
+      {
+        type: "resistance",
+        name: "Bench Press",
+        duration: 20,
+        weight: 300,
+        reps: 10,
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: new Date(Date.now()),
+    exercises: [
+      {
+        type: "resistance",
+        name: "Bench",
         duration: 30,
-        weight: 300,
-        reps: 10,
-        sets: 4
-      }
-    ]
-  },
-  {
-    day: new Date(new Date().setDate(new Date().getDate() - 3)),
-    exercises: [
-      {
-        type: "resistance",
-        name: "Bench Press",
-        duration: 20,
-        weight: 300,
-        reps: 10,
-        sets: 4
-      }
-    ]
-  },
-  {
-    day: new Date(new Date().setDate(new Date().getDate() - 2)),
-    exercises: [
-      {
-        type: "resistance",
-        name: "Military Press",
-        duration: 20,
-        weight: 300,
-        reps: 10,
-        sets: 4
+        distance: 2
       }
     ]
   }
